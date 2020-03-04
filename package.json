@@ -1,17 +1,15 @@
 {
-  "name": "react_materia",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "roadhog server",
+    "build": "roadhog build",
+    "lint": "eslint --ext .js src test",
+    "precommit": "npm run lint"
   },
   "dependencies": {
+    "dva": "^2.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -29,8 +27,6 @@
     "less-loader": "^5.0.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "react-socket-io": "^0.2.5",
     "sass-loader": "^8.0.2",
@@ -40,19 +36,17 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
+    "babel-plugin-dva-hmr": "^0.3.2",
+    "eslint": "^4.14.0",
+    "eslint-config-umi": "^0.1.1",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.12.0",
+    "redbox-react": "^1.4.3",
+    "roadhog": "^2.5.0-beta.4",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.6",
     "@babel/node": "^7.8.4",
@@ -65,19 +59,10 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/runtime": "^7.8.4",
     "babel-jest": "^25.1.0",
-    "babel-plugin-dva-hmr": "^0.4.2",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.4",
-    "eslint": "^6.8.0",
-    "eslint-config-umi": "^1.6.0",
-    "eslint-plugin-flowtype": "^4.6.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.3",
-    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "jest-junit-reporter": "^1.1.0",
-    "react-test-renderer": "^16.13.0",
-    "redbox-react": "^1.6.0"
+    "react-test-renderer": "^16.13.0"
   }
 }
