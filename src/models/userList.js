@@ -1,7 +1,9 @@
 
+// import userList from "./../services/userList";
+
 export default {
 
-  namespace: "example",
+  namespace: "userList",
 
   state: {},
 
