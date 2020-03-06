@@ -7,6 +7,8 @@
 /dist
 
 .env
+yarn-error.log
+yarn.lock
 
 # misc
 .DS_Store
