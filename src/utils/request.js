@@ -1,14 +1,14 @@
-import axios from "axios";
-import _ from "lodash";
-import qs from "qs";
-import api from "./apiConfig";
+import axios from 'axios';
+import _ from 'lodash';
+import qs from 'qs';
+import api from './apiConfig';
 
 const { api: baseURL } = api;
 //透過axios向API請求資料
 
 const ax = axios.create({ baseURL }); //建立與API跟目錄連線與操作的物件
 
-function fetch(_method = "GET", url, _params = {}, _extendOption = {}) {
+function fetch(_method = 'GET', url, _params = {}, _extendOption = {}) {
   const method = _.toUpper(_method);
   let params = {};
   // method.match(/GET/)  //match比對完的結果會回傳一個OBJ，而屬性input則為method的值，故 字串.match(正規表示).input 可用於switch-case裡面

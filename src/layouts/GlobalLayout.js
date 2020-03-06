@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "dva";
-import { routerRedux } from "dva/router";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'dva';
+import { routerRedux } from 'dva/router';
 
 const mapStateToProps = () => ({
 });
@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => ({
         if (callback) { callback(); }
     },
     SET_Store: (payload, callback, loading) => {
-        dispatch({ type: "global/SET_Store", payload, callback, loading });
+        dispatch({ type: 'global/SET_Store', payload, callback, loading });
     }
 });
 
@@ -25,7 +25,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(
         render() {
             const { children } = this.props;
             return (
-                <div className="layout">
+                <div className='layout'>
                     {children}
                 </div>
             );

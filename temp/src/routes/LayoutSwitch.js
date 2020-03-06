@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Switch } from "dva/router";
-import { connect } from "dva";
-import _ from "lodash";
-import PropTypes from "prop-types";
-import GlobalLayout from "./../layouts/GlobalLayout";
+import React, { Component } from 'react';
+import { Switch } from 'dva/router';
+import { connect } from 'dva';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
+import GlobalLayout from './../layouts/GlobalLayout';
 
 const mapStateToProps = (state) => ({
-    users: _.get(state, "users.users", []),
+    users: _.get(state, 'users.users', []),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -21,7 +21,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(
             const { location } = history;
             const { pathname } = location;
 
-            if (pathname.indexOf("/login") === 0) {
+            if (pathname.indexOf('/login') === 0) {
                 return (
                     <Switch {...props}>
                         {children}

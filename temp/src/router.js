@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { Route, Switch, routerRedux, withRouter, Redirect } from "dva/router";
-import PropTypes from "prop-types";
-import _ from "lodash";
-import { Socket } from "react-socket-io";
-import api from "./apiConfig";
-import LayoutSwitch from "./routes/LayoutSwitch";
-import IndexPageIndexPage from "./routes/IndexPage";
+import React, { Component } from 'react';
+import { Route, Switch, routerRedux, withRouter, Redirect } from 'dva/router';
+import PropTypes from 'prop-types';
+import _ from 'lodash';
+import { Socket } from 'react-socket-io';
+import api from './apiConfig';
+import LayoutSwitch from './routes/LayoutSwitch';
+import IndexPageIndexPage from './routes/IndexPage';
 const { ConnectedRouter } = routerRedux;
 
 const { api: socketURL } = api;
-const options = { transports: ["websocket"] };
+const options = { transports: ['websocket'] };
 
 const routeComponent = [
-  { key: "root", path: "/index", exact: true, component: IndexPageIndexPage },
+  { key: 'root', path: '/index', exact: true, component: IndexPageIndexPage },
 ];
 const redirectComponent = [
-  { key: "root", exact: true, to: "/index", From: "/" },
+  { key: 'root', exact: true, to: '/index', From: '/' },
 ];
 
 class Root extends Component {

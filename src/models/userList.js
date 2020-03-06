@@ -1,9 +1,9 @@
 
-// import userList from "./../services/userList";
+// import userList from './../services/userList';
 
 export default {
 
-  namespace: "userList",
+  namespace: 'userList',
 
   state: {},
 
@@ -14,7 +14,7 @@ export default {
 
   effects: {
     *fetch({ payload }, { call, put }) {  // eslint-disable-line
-      yield put({ type: "save" });
+      yield put({ type: 'save' });
     },
   },
 
