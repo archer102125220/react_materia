@@ -7,8 +7,8 @@ import api from './apiConfig';
 import LayoutSwitch from './routes/LayoutSwitch';
 import IndexPageIndexPage from './routes/IndexPage';
 const { ConnectedRouter } = routerRedux;
-console.log(api);
-const { api: socketURL } = api;
+
+const { socket: socketURL } = api;
 const options = { transports: ['websocket'] };
 
 const routeComponent = [

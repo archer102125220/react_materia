@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "cross-env webpack-dev-server --progress --colors --open",
+    "start": "cross-env webpack-dev-server --progress --color --open",
     "build": "webpack --mode production",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
