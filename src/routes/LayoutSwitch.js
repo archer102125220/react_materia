@@ -3,9 +3,13 @@ import { Switch } from 'dva/router';
 import { connect } from 'dva';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-// import { enquireScreen } from 'enquire-js';
+import { enquireScreen } from 'enquire-js';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import themCofing from './../../theme';
 import Socket from './../utils/socket';
 import GlobalLayout from './../layouts/GlobalLayout';
+
+const theme = createMuiTheme(themCofing);
 
 
 const mapStateToProps = (state) => ({
@@ -28,32 +32,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(
             ];
             Socket.eventInit(socketEvents);
 
-            // this.enquireHandler = enquireScreen(mobile => {
-            //     this.setState({
-            //         isMobile: mobile ? true : false,
-            //     });
-            // }/*, '(max-width: 1024px)' */);
+            this.enquireHandler = enquireScreen(mobile => {
+                this.setState({
+                    isMobile: mobile ? true : false,
+                });
+            }/*, '(max-width: 1024px)' */);
         }
 
         render() {
             const { props } = this;
-            const { children, history } = props;
-            const { location } = history;
-            const { pathname } = location;
-
-            if (pathname.indexOf('/login') === 0) {
-                return (
-                    <Switch {...props}>
-                        {children}
-                    </Switch>
-                );
-            } else {
-                return (
-                    <GlobalLayout {...props}>
-                        <Switch {...props}>{children}</Switch>
-                    </GlobalLayout>
-                );
-            }
+            const { children/*, history*/ } = props;
+            // const { location } = history;
+            // const { pathname } = location;
+            return (
+                <ThemeProvider theme={theme}>
+                    {
+                        <GlobalLayout {...props}>
+                            <Switch {...props}>{children}</Switch>
+                        </GlobalLayout>
+                    }
+                </ThemeProvider>);
         }
         static propTypes = {
             children: PropTypes.any,

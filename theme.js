@@ -1,3 +1,7 @@
 module.exports = {
-    '@primary-color': '#388e3c'
+    palette: {
+        primary: {
+            main: '#388e3c',
+        },
+    },
 };

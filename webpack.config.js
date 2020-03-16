@@ -38,8 +38,9 @@ module.exports = {
       }, {
         loader: 'less-loader',
         options: {
-          modifyVars: theme,
-          javascriptEnabled: true,
+          // modifyVars: theme,
+          // javascriptEnabled: true,
+          modules: true
         }
       }],
     },
