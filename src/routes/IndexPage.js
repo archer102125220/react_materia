@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Socket from './../utils/socket';
 import yay from '../assets/yay.jpg';
-
+//https://www.sipios.com/blog-tech/how-to-use-styled-components-with-material-ui-in-a-react-app
 const styles = {
   normal: {
     fontFamily: 'Georgia, sans-serif',
