@@ -1,7 +1,7 @@
 import axios from 'axios';
 import _ from 'lodash';
 import qs from 'qs';
-import api from './apiConfig';
+import api from './../apiConfig';
 
 const { api: baseURL } = api;
 //透過axios向API請求資料

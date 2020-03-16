@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch, routerRedux, withRouter, Redirect } from 'dva/router';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Socket } from 'react-socket-io';
-import api from './apiConfig';
 import LayoutSwitch from './routes/LayoutSwitch';
 import IndexPageIndexPage from './routes/IndexPage';
 const { ConnectedRouter } = routerRedux;
-
-const { socket: socketURL } = api;
-const options = { transports: ['websocket'] };
 
 const routeComponent = [
   { key: 'root', path: '/index', exact: true, component: IndexPageIndexPage },
@@ -64,16 +59,14 @@ const router = props => {
     <ConnectedRouter {...props}>
       <RouterRoot {...props}>
         <Switch  {...props}>
-          <Socket {...props} uri={socketURL} options={options}>
-            <LayoutSwitch  {...props}>
-              {
-                routeComponent.map(value => renderRoutes(value, props))
-              }
-              {
-                redirectComponent.map(value => renderRedirects(value, props))
-              }
-            </LayoutSwitch>
-          </Socket>
+          <LayoutSwitch  {...props}>
+            {
+              routeComponent.map(value => renderRoutes(value, props))
+            }
+            {
+              redirectComponent.map(value => renderRedirects(value, props))
+            }
+          </LayoutSwitch>
         </Switch>
       </RouterRoot>
     </ConnectedRouter>
