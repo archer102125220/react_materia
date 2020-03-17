@@ -48,7 +48,7 @@ class IndexPage extends Component {
           <li>To get started, edit <code>src/index.js</code> and save to reload.</li>
           <li><a href='https://github.com/dvajs/dva-docs/blob/master/v1/en-us/getting-started.md'>Getting Started</a></li>
           <li><Button variant='contained' color='primary' onClick={() => {
-            Socket.clickEvent({ id: 10 });
+            Socket.clickEventSender({ id: 10 });
             console.log(this.props);
           }}>test</Button></li>
         </ul>
