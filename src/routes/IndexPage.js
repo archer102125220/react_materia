@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'dva';
+import _ from 'lodash';
 import { withStyles } from '@material-ui/core/styles';
 import Button from './../lib/components/Button';
 import Socket from './../utils/socket';
@@ -34,13 +35,23 @@ const styles = {
   },
 };
 
+const mapStateToProps = (state) => ({
+  users: _.get(state, 'userList.userList', []),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  GET_UserList: (payload, callback, loading) => dispatch({ type: 'userList/GET_UserList', payload, callback, loading }),
+});
+
+
 class IndexPage extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, users } = this.props;
+    const buttons = users.map(element => ({ element: element.account, event: () => Socket.clickEventSender({ id: 10 }) }));
     return (
       <div className={classes.normal}>
         <h1 className={classes.title}>Yay! Welcome to dva!</h1>
@@ -48,22 +59,15 @@ class IndexPage extends Component {
         <ul className={classes.list}>
           <li>To get started, edit <code>src/index.js</code> and save to reload.</li>
           <li><a href='https://github.com/dvajs/dva-docs/blob/master/v1/en-us/getting-started.md'>Getting Started</a></li>
-          <li><Button buttons={[{
-            element: 'test', event: () => {
-              Socket.clickEventSender({ id: 10 });
-            }
-          }, {
-            element: 'test2', event: () => {
-              Socket.clickEventSender({ id: 10 });
-            }
-          }]} /></li>
+          <li><Button buttons={buttons} /></li>
         </ul>
       </div>
     );
   }
   static propTypes = {
     classes: PropTypes.object.isRequired,
+    users: PropTypes.array,
   }
 }
 
-export default withStyles(styles)(connect()(IndexPage));
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(IndexPage));

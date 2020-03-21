@@ -13,7 +13,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
-class materialButton extends Component {
+class MaterialButton extends Component {
     constructor(props) {
         super(props);
         this.anchorRef = React.createRef();
@@ -32,6 +32,16 @@ class materialButton extends Component {
                 isMobile: mobile ? true : false,
             });
         }/*, '(max-width: 1024px)' */);
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        const { buttons } = props;
+        const { options } = state;
+        if (buttons !== options) {
+            return { ...state, options: buttons };
+        }
+
+        return null;
     }
 
     handleClick = (event) => {
@@ -59,7 +69,7 @@ class materialButton extends Component {
     render() {
         const { state, props, anchorRef } = this;
         const { open, selectedIndex, options } = state;
-        const { buttons, vertical, buttonStyle, split } = props;
+        const { children, buttons, vertical, buttonStyle, split } = props;
         const config = {
             variant: 'contained',
             color: 'primary',
@@ -70,6 +80,7 @@ class materialButton extends Component {
         if (split === 'true' || split === true) {
             return (<Grid container direction='column' alignItems='center'>
                 <Grid item xs={12}>
+                    {/* https://zh-hant.reactjs.org/docs/refs-and-the-dom.html  */}
                     <ButtonGroup {...config} ref={anchorRef} aria-label='split button'>
                         <Button onClick={this.handleClick}>{((options[selectedIndex] || {}).element || '')}</Button>
                         <Button
@@ -111,7 +122,7 @@ class materialButton extends Component {
                     </Popper>
                 </Grid>
             </Grid>);
-        } else if (Array.isArray(buttons) && buttons.length > 1) {
+        } else if (Array.isArray(buttons)) {
             return (<ButtonGroup {...config}>
                 {
                     buttons.map(({ element, event, config }, key) => {
@@ -124,7 +135,7 @@ class materialButton extends Component {
         } else {
             return (
                 <Button {...config}>
-                    {props.children}
+                    {children}
                 </Button >
             );
         }
@@ -139,4 +150,4 @@ class materialButton extends Component {
     }
 }
 
-export default materialButton;
+export default MaterialButton;
