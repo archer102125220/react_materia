@@ -13,6 +13,8 @@ const app = dva();
 app.model(require('./models/userList').default);
 
 // 4. Router
+// console.log(require('./router').default);
+// console.log(app.router.toString());
 app.router(require('./router').default);
 
 // 5. Start

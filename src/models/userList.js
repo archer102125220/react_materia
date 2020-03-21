@@ -19,8 +19,10 @@ export default {
       const data = yield call(GET_userList);
       yield put({ type: 'set_user_list', payload: data });
     },
-    *SOCKET_UserList({ payload, token }, { call, put }) {  // eslint-disable-line
+    *SOCKET_UserList({ payload, callback, loading, token }, { call, put }) {  // eslint-disable-line
       // const data = yield call(GET_userList, 'testEvent', payload, token);
+      // console.log(call.toString());
+      // console.log(put.toString());
       yield put({ type: 'set_user_list', payload: payload });
     },
   },

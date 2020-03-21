@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import _ from 'lodash';
 import { routerRedux } from 'dva/router';
+import Typography from '@material-ui/core/Typography';
 
 const mapStateToProps = (state) => ({
     users: _.get(state, 'userList.userList', []),
@@ -23,9 +24,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(
 
         render() {
             const { children } = this.props;
-            return <div>
+
+            return (<Typography component='div'>
                 {children}
-            </div>;
+            </Typography>);
         }
 
         static propTypes = {

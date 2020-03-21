@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
-const theme = require('./theme');
+// const theme = require('./theme');
 
 module.exports = {
   entry: [

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'dva';
-import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
+import Button from './../lib/components/Button';
 import Socket from './../utils/socket';
 import yay from '../assets/yay.jpg';
+
 //https://www.sipios.com/blog-tech/how-to-use-styled-components-with-material-ui-in-a-react-app
 const styles = {
   normal: {
@@ -47,10 +48,15 @@ class IndexPage extends Component {
         <ul className={classes.list}>
           <li>To get started, edit <code>src/index.js</code> and save to reload.</li>
           <li><a href='https://github.com/dvajs/dva-docs/blob/master/v1/en-us/getting-started.md'>Getting Started</a></li>
-          <li><Button variant='contained' color='primary' onClick={() => {
-            Socket.clickEventSender({ id: 10 });
-            console.log(this.props);
-          }}>test</Button></li>
+          <li><Button buttons={[{
+            element: 'test', event: () => {
+              Socket.clickEventSender({ id: 10 });
+            }
+          }, {
+            element: 'test2', event: () => {
+              Socket.clickEventSender({ id: 10 });
+            }
+          }]} /></li>
         </ul>
       </div>
     );
@@ -59,14 +65,5 @@ class IndexPage extends Component {
     classes: PropTypes.object.isRequired,
   }
 }
-
-// const onMessage = (message) => {
-//   console.log({ message });
-// };
-
-// const onClickEvent = (clickEvent) => {
-//   console.log('客戶端');
-//   console.log({ clickEvent });
-// };
 
 export default withStyles(styles)(connect()(IndexPage));
