@@ -1,5 +1,5 @@
 const apiConfig = {
-    SERVER_PREFIX: process.env.SERVER_PREFIX || 'api',
+    SERVER_PREFIX: process.env.SERVER_PREFIX,
     SERVER_PORT: process.env.SERVER_PORT || 8000,
     SERVER_HOST: process.env.SERVER_HOST || 'localhost',
     SERVER_PROTOCOL: process.env.SERVER_PROTOCOL || 'http'
