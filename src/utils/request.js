@@ -35,4 +35,12 @@ function fetch(_method = 'GET', url, _params = {}, _extendOption = {}) {
   }).then((response) => response.data);
 }
 
-export default fetch;
+export default {
+  ...axios,
+  fetch,
+  get:(url, _params = {}, _extendOption = {}) => fetch('GET', url, _params, _extendOption),
+  post:(url, _params = {}, _extendOption = {}) => fetch('POST', url, _params, _extendOption),
+  put:(url, _params = {}, _extendOption = {}) => fetch('PUT', url, _params, _extendOption),
+  patch:(url, _params = {}, _extendOption = {}) => fetch('PATCH', url, _params, _extendOption),
+  delet:(url, _params = {}, _extendOption = {}) => fetch('DELET', url, _params, _extendOption)
+};
