@@ -32,7 +32,12 @@ function fetch(_method = 'GET', url, _params = {}, _extendOption = {}) {
     ...params,
     ..._extendOption,
     // withCredentials: true,
-  }).then((response) => response.data);
+  }).then((response) => response.data)
+  .catch(function (err) {
+    // Remove This When Axios Release Issue#1415
+    _.set(err, 'isAxiosError', true);
+    throw err;
+  });
 }
 
 export default {

@@ -16,7 +16,7 @@ const mapStateToProps = (state) => ({
     users: _.get(state, 'userList.userList', []),
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({ // eslint-disable-line
     // SOCKET_UserList: (payload, callback, loading) => dispatch({ type: 'userList/SOCKET_UserList', payload, callback, loading }),
 });
 
