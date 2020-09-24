@@ -17,17 +17,16 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    SOCKET_UserList: (payload, callback, loading) => dispatch({ type: 'userList/SOCKET_UserList', payload, callback, loading }),
+    // SOCKET_UserList: (payload, callback, loading) => dispatch({ type: 'userList/SOCKET_UserList', payload, callback, loading }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(
     class LayoutSwitch extends Component {
 
         componentDidMount = () => {
-            const { SOCKET_UserList } = this.props;
+            // const { SOCKET_UserList } = this.props;
 
             const socketEvents = [
-                { name: 'testEvent', event: SOCKET_UserList },
                 { name: 'clickEvent', event: (clickEvent) => console.log({ clickEvent }) }
             ];
             Socket.eventInit(socketEvents);

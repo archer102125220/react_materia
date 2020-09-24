@@ -1,5 +1,6 @@
 
 import { GET_userList, /*SOCKET_UserList*/ } from './../services/userList';
+import Socket from './../utils/socket';
 
 export default {
 
@@ -9,10 +10,14 @@ export default {
     userList: []
   },
 
-  // subscriptions: {
-  //   setup({ dispatch, history }) {  // eslint-disable-line
-  //   },
-  // },
+  subscriptions: {
+    setup({ dispatch, history }) {  // eslint-disable-line
+      const socketEvents = [
+        { name: 'testEvent', event: (payload) => dispatch({ type: 'set_user_list', payload: payload }) },
+      ];
+      Socket.eventInit(socketEvents);
+    },
+  },
 
   effects: {
     *GET_UserList({ payload }, { call, put }) {  // eslint-disable-line
