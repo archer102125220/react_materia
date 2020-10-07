@@ -22,6 +22,10 @@ String.prototype.CountSearch = function (reg) { //透過正規表達式去計算
     }
     return count;
 };
+Number.prototype.toThousandsString = function () {
+    const out = this + '';
+    return out.replace(/(\d{1,3})(?=(\d{3})(?:$|\.))/g, '$1,');
+};
 Array.prototype.RemoveBykey = function (removeKey) {
     return this.filter((val, key) => key !== removeKey);
 };
